@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,11 +22,13 @@ public class WebDriverDemo {
 //		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444"),
 //				DesiredCapabilities.chrome());
 		driver.get("http://www.pluralsight.com");
-
+		driver.manage().window().setSize(new Dimension(1280, 680));
 //		WebElement menu = driver.findElement(By.xpath("//*[@id=\"menuMobile\"]"));
-		WebElement search = driver.findElement(By.id("searchMobile"));
+		WebElement courses = driver.findElement(By.xpath("/html/body/div[1]/div/noindex[1]/nav/div/div[2]/ul[1]/li[2]/a"));
 
-		// menu.click();
+		courses.click();
+		WebElement java = driver.findElement(By.xpath("//*[@id=\"software-development\"]/div/div[1]/ul/li[4]/a"));
+		java.click();
 		// WebElement courses = driver.findElement(By.xpath("/html/body/div[1]/div/noindex[1]/nav/div/div[2]/ul[1]/li[2]/a"));
 		// courses.click();
 //		WebElement imagesLink = driver.findElements(By.linkText("Images")).get(0);
